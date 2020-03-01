@@ -1,0 +1,52 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.0/libexec/bin/yarn.js install
+
+PATH: 
+  /Users/heiderlopes/.zinit/polaris/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.22.0
+
+Node version: 
+  12.16.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/heiderlopes/Documents/projetos/estudos/graphql/curso_udemy/banco_de_dados/package.json: Unexpected token } in JSON at position 368
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:310:30)
+      at /usr/local/Cellar/yarn/1.22.0/libexec/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "banco_de_dados",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "start": "nodemon --ext js,graphql"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "knex": "^0.20.10",
+      "mysql": "^2.18.1",
+      "apollo-server": "^2.4.8",
+      "graphql": "^14.2.1",
+      "graphql-import": "^0.7.1",
+    },
+    "devDependencies": {
+      "nodemon": "^1.18.10"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
