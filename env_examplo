@@ -1,8 +1,9 @@
 NODE_EV=development
+#NODE_EV=production
 APP_DB_HOST=localhost
-APP_DB_NAME=graphql
 APP_DB_PORT=3306
+APP_DB_NAME=graphql
 APP_DB_USER=root
 APP_DB_PASSWORD=12345678
 
-APP_AUTH_SECRET=c7d211537abcd54a9d329523e5fe573df08c11e0
+APP_AUTH_SECRET=escoher um segredo

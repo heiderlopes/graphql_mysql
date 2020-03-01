@@ -2,7 +2,10 @@ const db = require('../../config/db')
 const { perfil: obterPerfil } = require( '../Query/perfil')
 
 module.exports = {
-    async novoPerfil(_, { dados }) {
+    async novoPerfil(_, { dados }, ctx) {
+
+        ctx && ctx.validarAdmin()
+
         try {
             const [id] = await db('perfis').insert({...dados})
             return db('perfis').where({id}).first()
@@ -10,7 +13,10 @@ module.exports = {
             throw new Error(error.sqlMessage)
         }
     },
-    async excluirPerfil(_, { filtro }) {
+    async excluirPerfil(_, { filtro }, ctx) {
+
+        ctx && ctx.validarAdmin()
+
         try {
             const perfil = await obterPerfil(_, { filtro })
             
@@ -25,7 +31,10 @@ module.exports = {
         }
     },
 
-    async alterarPerfil(_, { filtro, dados }) {
+    async alterarPerfil(_, { filtro, dados }, ctx) {
+        
+        ctx && ctx.validarAdmin()
+
         try {
             const perfil = await obterPerfil(_, { filtro })
             

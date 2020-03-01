@@ -1,10 +1,35 @@
 const db = require('../../config/db')
+const bcrypt = require('bcrypt-nodejs')
+const {getUsuarioLogado } = require('../comum/usuario')
 
 module.exports = {
-    usuarios() {
+
+    async login(_, { dados }) {
+        const usuario = await db('usuarios')
+            .where({email: dados.email})
+            .first()
+
+            if(!usuario) {
+                throw new Error('Usuário/Senha inválido')
+            }
+
+            const saoIguais = bcrypt.compareSync(dados.senha, usuario.senha)
+            
+            if(!saoIguais){
+                throw new Error('Usuário/Senha inválido')
+            }
+
+            return getUsuarioLogado(usuario)
+    },
+
+    usuarios(obj, args, context) {
+        ctx && ctx.validarAdmin()
         return db( 'usuarios')
     },
-    usuario(_, { filtro }) {
+    usuario(_, { filtro }, ctx) {
+        
+        ctx && ctx.validarUsuarioFiltro(filtro)
+        
         if(!filtro) return null
         const {id, email} = filtro
 
