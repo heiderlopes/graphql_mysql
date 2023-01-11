@@ -13,7 +13,7 @@
     "apollo-server": "^2.4.8",
     "graphql": "^14.2.1",
     "graphql-import": "^0.7.1",
-    "knex": "^0.19.5",
+    "knex": "^2.4.0",
     "mysql": "^2.16.0",
     "bcrypt-nodejs": "0.0.3",
     "dotenv": "^7.0.0",
